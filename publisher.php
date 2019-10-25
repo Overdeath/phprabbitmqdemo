@@ -3,9 +3,11 @@ require __DIR__ . '/vendor/autoload.php';
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 
-$connection = new AMQPStreamConnection('192.168.56.12', 5672, 'test', 'test');
+require 'config.php';
 
-$publisher = new \RabbitMqDemo\Publisher($connection, "products");
+$connection = new AMQPStreamConnection($hostName, $port, $user, $pass, $vhost);
+
+$publisher = new \RabbitMqDemo\Publisher($connection, $exchangeName);
 
 for ($i=1; $i<=1000; $i++) {
     $data = ["name"=>"Produs ".$i, "price"=>rand(100, 1000)];

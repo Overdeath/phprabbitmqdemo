@@ -19,7 +19,7 @@ The consumer has a usleep command in it to fake processing time, you can change 
 
 ### Using supervisor to manage consumers 
 Included in the repo is a sample configuration file for supervisor that would allow you to run a variable number of workers and configure supervisor to make sure they are always running.
-For instructions on how to install supervisor check [the installataion guide](http://supervisord.org/installing.html)
+For instructions on how to install supervisor check [the installation guide](http://supervisord.org/installing.html)
 
 ### Setting up RabbitMQ on debian/Ubuntu
 This is just a sample for ubuntu 18.04, use the instructions on the [official RabbitMQ instalation page](https://www.rabbitmq.com/download.html) instead

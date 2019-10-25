@@ -3,7 +3,10 @@ require __DIR__ . '/vendor/autoload.php';
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 
-$connection = new AMQPStreamConnection('192.168.56.12', 5672, 'test', 'test');
+require 'config.php';
 
-$consumer = new \RabbitMqDemo\Consumer($connection, 'products', 'frontend');
+$connection = new AMQPStreamConnection($hostName, $port, $user, $pass, $vhost);
+
+$consumer = new \RabbitMqDemo\Consumer($connection, $exchangeName, $queueName);
+
 $consumer->consume();
